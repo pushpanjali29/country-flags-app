@@ -5,15 +5,15 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
 
- useEffect(() => {
+useEffect(() => {
   const fetchCountries = async () => {
     try {
       const response = await fetch('https://xcountries-backend.azurewebsites.net/all');
+      console.log('API request made');  // Log when the request is made
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      console.log('Fetched country data: ', data);  // Log data to verify
       setCountries(data);
     } catch (error) {
       console.error('Error fetching data: ', error);
@@ -25,7 +25,6 @@ function App() {
 
   fetchCountries();
 }, []);
-
   return (
     <div className="App">
       <h1>Country Flags</h1>
