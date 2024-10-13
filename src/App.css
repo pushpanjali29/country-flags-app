@@ -5,20 +5,22 @@
 
 .country-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 500px;
-  overflow-y: scroll;
+  flex-wrap: wrap;          /* Allows items to wrap to the next line */
+  justify-content: center;  /* Center the list */
+  gap: 20px;                
 }
 
 .country {
   display: flex;
-  align-items: center;
+  align-items: center;      /* Align the flag and name in a row */
+  flex-direction: column;   /* Stack the image and name vertically */
+  width: 150px;             /* Set a consistent width for each item */
+  text-align: center;
   margin: 10px;
 }
 
 .flag {
-  width: 50px;
-  height: 30px;
-  margin-right: 10px;
+  width: 100px;            
+  height: auto;             
+  border: 1px solid #ccc;
 }
