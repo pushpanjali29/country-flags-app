@@ -5,23 +5,26 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchCountries = async () => {
-      try {
-        const response = await fetch('https://xcountries-backend.azurewebsites.net/all');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setCountries(data);
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-        setError(error.message);
+ useEffect(() => {
+  const fetchCountries = async () => {
+    try {
+      const response = await fetch('https://xcountries-backend.azurewebsites.net/all');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    };
+      const data = await response.json();
+      console.log('Fetched country data: ', data);  // Log data to verify
+      setCountries(data);
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchCountries();
-  }, []);
+  fetchCountries();
+}, []);
 
   return (
     <div className="App">
