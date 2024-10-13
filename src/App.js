@@ -8,7 +8,7 @@ function App() {
 useEffect(() => {
   const fetchCountries = async () => {
     try {
-      const response = await fetch('https://xcountries-backend.azurewebsites.net/all');
+      const response = await fetch(' https://xcountries-backend.azurewebsites.net/all');
       console.log('API request made');  // Log when the request is made
       if (!response.ok) {
         throw new Error('Network response was not ok');
