@@ -32,7 +32,16 @@ useEffect(() => {
       <div className="country-list">
         {countries.map((country) => (
           <div key={country.alpha3Code} className="country">
-            <img src={country.flag} alt={`Flag of ${country.name}`} className="flag" />
+           {countries.map((country) => (
+  <div key={country.alpha3Code} className="country">
+    <img 
+      src={country.flag} 
+      alt={`Flag of ${country.name}`}  // Good alt attribute describing the flag
+      className="flag" 
+    />
+    <p>{country.name}</p>
+  </div>
+))}
             <p>{country.name}</p>
           </div>
         ))}
